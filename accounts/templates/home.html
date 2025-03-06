@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cancer Prediction - Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-indigo-600">Cancer Prediction</div>
+            <div class="space-x-4">
+                <a href="{% url 'main' %}" class="text-gray-700 hover:text-indigo-600">Dashboard</a>
+                <a href="{% url 'prediction' %}" class="text-gray-700 hover:text-indigo-600">Prediction</a>
+                <a href="{% url 'history' %}" class="text-gray-700 hover:text-indigo-600">History</a>
+                <a href="{% url 'bot' %}" class="text-gray-700 hover:text-indigo-600">Chatbot</a>
+                <a href="{% url 'logout' %}" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Logout</a>
+            </div>
+        </nav>
+    </header>
+    {% block home %}
+    <main class="container mx-auto px-6 py-8">
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <i class="fas fa-notes-medical text-4xl text-green-500 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">New Prediction</h3>
+                <p class="text-gray-600 mb-4">Start a new cancer prediction analysis</p>
+                <button class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600">
+                    Begin Analysis
+                </button>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <i class="fas fa-history text-4xl text-blue-500 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Prediction History</h3>
+                <p class="text-gray-600 mb-4">View past prediction results</p>
+                <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">
+                    View History
+                </button>
+            </div>
+            {% comment %} <div class="bg-white p-6 rounded-lg shadow-md">
+                <i class="fas fa-user-cog text-4xl text-purple-500 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Profile Settings</h3>
+                <p class="text-gray-600 mb-4">Manage your account details</p>
+                <button class="w-full bg-purple-500 text-white py-2 rounded-lg hover:bg-purple-600">
+                    Edit Profile
+                </button>
+            </div> {% endcomment %}
+        </div>
+    </main>
+    {% endblock %}
+</body>
